@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Products</h2>
+    <button onclick="showAll()">Show All</button>
+    <button onclick="showCheap()">Under $50</button>
+    <button onclick="showExpensive()">Over $50</button>
+    <ul id="productDisplay"></ul>
+    <script>
+        let prices = [10, 85, 25, 120, 45, 90, 5];
+        const display = document.getElementById('productDisplay');
+        function renderList(arrayToRender) {
+            display.innerHTML = "";
+            arrayToRender.forEach((price) => {
+                display.innerHTML += "<li>$" + price + "</li>";
+            });
+        }
+        // Show all on load
+        renderList(prices);
+        function showAll() {
+            renderList(prices);
+        }
+        function showCheap() {
+            const cheapPrices = prices.filter(price => price < 50);
+            renderList(cheapPrices);
+            // --- YOUR LOGIC HERE --
+            // 1. Use .filter() on the 'prices' array to get prices < 50.
+            // 2. Pass that new filtered array into the renderList() function!
+        }
+        function showExpensive() {
+            const expensivePrices = prices.filter(price => price >= 50);
+            renderList(expensivePrices);
+            // --- YOUR LOGIC HERE --
+            // 1. Use .filter() on the 'prices' array to get prices >= 50.
+            // 2. Pass that new filtered array into the renderList() function!
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>My Favorite Movies</h2>
+    <input type="text" id="movieInput" placeholder="Add a movie...">
+    <button onclick="addMovie()">Add</button>
+
+    <ul id="movieList">
+        <!-- Movies will appear here -->
+    </ul>
+    <script>
+        // 1. Create our "State" (the data)
+        let movies = ["The Matrix", "Inception"];
+        const listElement = document.getElementById('movieList');
+        // 2. Function to render (draw) the array to the screen
+        function renderMovies() {
+            // Clear the current list so we don't get duplicates!
+            listElement.innerHTML = "";
+            // Loop through the array and create <li> tags
+            movies.forEach((movie) => {
+                listElement.innerHTML += "<li>" + movie + "</li>";
+            });
+        }
+        // 3. Initial render when page loads
+        renderMovies()
+        // 4. Function to handle the button click
+        function addMovie() {
+            // --- YOUR LOGIC HERE --
+            // A. Get the text from the input box 
+            const newMovie = document.getElementById('movieInput').value;
+            // B. Push that text into the 'movies' array
+            movies.push(newMovie);
+            // C. Call renderMovies() to redraw the screen with the new data!
+            renderMovies();
+            // D. (Optional) Clear the input box so it's empty for the next movie.
+            document.getElementById('movieInput').value ="";
+        }
+    </script>
+</body>
+
+</html>
